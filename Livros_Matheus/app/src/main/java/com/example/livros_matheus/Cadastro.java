@@ -19,18 +19,24 @@ public class Cadastro extends AppCompatActivity {
         setContentView(R.layout.cadastro);
 
         Button button = findViewById(R.id.cadastroBotao);
+        Button button2 = findViewById(R.id.addImagemBotao);
+
+        button2.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AddImagem.class);
+            startActivity(intent);
+        });
 
         button.setOnClickListener(v -> {
-            Livro livro = new Livro("Livro teste", "teste", "teste", R.drawable.adicionar);
-            Principal.listaDeLivros.add(livro);
 
             TextView titulo = findViewById(R.id.nomeInput);
             TextView genero = findViewById(R.id.generoInput);
             TextView sinopse = findViewById(R.id.sinopseInput);
+            TextView editora = findViewById(R.id.editoraInput);
+            TextView ano = findViewById(R.id.anoInput);
 
-            System.out.println("Titulo: " + titulo.getText().toString());
-            System.out.println("Genero: " + genero.getText().toString());
-            System.out.println("Sinopse: " + sinopse.getText().toString());
+            Livro livro = new Livro(titulo.getText().toString(), genero.getText().toString(), sinopse.getText().toString(), R.drawable.livroimage, editora.getText().toString(), ano.getText().toString());
+
+            Principal.listaDeLivros.add(livro);
 
             Intent intent = new Intent(this, Principal.class);
             startActivity(intent);

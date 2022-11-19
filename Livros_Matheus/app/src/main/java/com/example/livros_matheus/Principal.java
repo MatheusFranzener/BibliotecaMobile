@@ -15,6 +15,7 @@ import java.util.List;
 public class Principal  extends AppCompatActivity {
 
     private RecyclerView meuRec;
+    private MeuAdapter meuAdapter;
     public static List<Livro> listaDeLivros = new ArrayList<>();
 
     @Override
@@ -23,14 +24,29 @@ public class Principal  extends AppCompatActivity {
         setContentView(R.layout.home);
 
         meuRec = findViewById(R.id.meuRec);
-        criarLista();
 
         MeuAdapter meuAdapter = new MeuAdapter(listaDeLivros);
+
+        cadastroPrevio();
 
         RecyclerView.LayoutManager meuLayout = new LinearLayoutManager(getApplicationContext());
         meuRec.setLayoutManager(meuLayout);
         meuRec.setHasFixedSize(true);
         meuRec.setAdapter(meuAdapter);
+        meuAdapter.setOnItemClickListener(new MeuAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                listaDeLivros.remove(position);
+                meuAdapter.notifyItemRemoved(position);
+            }
+        });
+
+        meuAdapter.setOnContainerClickListener(new MeuAdapter.OnContainerClickListener() {
+            @Override
+            public void onContainerClick(Livro livro) {
+                informacoesLivro(livro);
+            }
+        });
         meuRec.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
     }
@@ -40,9 +56,15 @@ public class Principal  extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void criarLista(){
-        Livro livro1 = new Livro("Aventuras de PI", "Aventura", "Livro muito legal e legal", R.drawable.adicionar);
-        listaDeLivros.add(livro1);
+    public void informacoesLivro(Livro livro){
+        Intent intent = new Intent(this, Informacoes.class);
+        intent.putExtra("livro", livro);
+        startActivity(intent);
+    }
+
+    public void cadastroPrevio(){
+        Livro livro = new Livro("Aventuras de PI", "Aventura", "Livro bom", R.drawable.livroimage, "Saraiva", "2018");
+        listaDeLivros.add(livro);
     }
 
 }

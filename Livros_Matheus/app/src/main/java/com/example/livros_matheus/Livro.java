@@ -1,15 +1,19 @@
 package com.example.livros_matheus;
 
-public class Livro {
+import java.io.Serializable;
 
-    private String titulo, genero, sinopse;
+public class Livro implements Serializable {
+
+    private String titulo, genero, sinopse, editora, ano;
     private int image;
 
-    public Livro(String titulo, String genero, String sinopse, int image) {
+    public Livro(String titulo, String genero, String sinopse, int image, String editora, String ano) {
         this.titulo = titulo;
         this.genero = genero;
         this.sinopse = sinopse;
         this.image = image;
+        this.editora = editora;
+        this.ano = ano;
     }
 
     public String getTitulo() {
@@ -42,5 +46,21 @@ public class Livro {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
     }
 }
