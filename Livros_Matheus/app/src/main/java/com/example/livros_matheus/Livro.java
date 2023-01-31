@@ -1,17 +1,27 @@
 package com.example.livros_matheus;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.Serializable;
 
 public class Livro implements Serializable {
 
     private String titulo, genero, sinopse, editora, ano;
-    private int image;
+    private Drawable image;
 
-    public Livro(String titulo, String genero, String sinopse, int image, String editora, String ano) {
+    public Livro(String titulo, String genero, String sinopse, Drawable image, String editora, String ano) {
         this.titulo = titulo;
         this.genero = genero;
         this.sinopse = sinopse;
         this.image = image;
+        this.editora = editora;
+        this.ano = ano;
+    }
+
+    public Livro(String titulo, String genero, String sinopse, String editora, String ano) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.sinopse = sinopse;
         this.editora = editora;
         this.ano = ano;
     }
@@ -40,11 +50,11 @@ public class Livro implements Serializable {
         this.sinopse = sinopse;
     }
 
-    public int getImage() {
+    public Drawable getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Drawable image) {
         this.image = image;
     }
 

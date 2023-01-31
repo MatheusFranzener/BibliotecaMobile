@@ -61,7 +61,7 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
         holder.titulo.setText(livro.getTitulo());
         holder.genero.setText(livro.getGenero());
         holder.sinopse.setText(livro.getSinopse());
-        holder.image.setImageResource(livro.getImage());
+        holder.image.setImageDrawable(livro.getImage());
     }
 
     @Override
@@ -99,6 +99,7 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    System.out.println("Entrou onclick");
                     listener2.onContainerClick(listaLivros.get(getAdapterPosition()));
                 }
             });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cadastro extends AppCompatActivity {
+
+    static ImageView imagemLivro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,8 @@ public class Cadastro extends AppCompatActivity {
             TextView editora = findViewById(R.id.editoraInput);
             TextView ano = findViewById(R.id.anoInput);
 
-            Livro livro = new Livro(titulo.getText().toString(), genero.getText().toString(), sinopse.getText().toString(), R.drawable.livroimage, editora.getText().toString(), ano.getText().toString());
+
+            Livro livro = new Livro(titulo.getText().toString(), genero.getText().toString(), sinopse.getText().toString(), imagemLivro.getDrawable(), editora.getText().toString(), ano.getText().toString());
 
             Principal.listaDeLivros.add(livro);
 

@@ -1,6 +1,7 @@
 package com.example.livros_matheus;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +13,16 @@ import androidx.appcompat.view.menu.MenuView;
 
 public class Informacoes extends AppCompatActivity {
 
+    public static Drawable imgLivro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.informacoes);
 
         Livro livro = (Livro) getIntent().getSerializableExtra("livro");
+
+
 
         preencherDados(livro);
 
@@ -45,7 +50,7 @@ public class Informacoes extends AppCompatActivity {
         sinopse.setText(livro.getSinopse());
         editora.setText(livro.getEditora());
         ano.setText(livro.getAno());
-        imagemLivro.setImageResource(R.drawable.livroimage);
+        imagemLivro.setImageDrawable(imgLivro);
     }
 
 }

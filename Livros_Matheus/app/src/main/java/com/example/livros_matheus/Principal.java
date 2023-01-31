@@ -27,8 +27,6 @@ public class Principal  extends AppCompatActivity {
 
         MeuAdapter meuAdapter = new MeuAdapter(listaDeLivros);
 
-        cadastroPrevio();
-
         RecyclerView.LayoutManager meuLayout = new LinearLayoutManager(getApplicationContext());
         meuRec.setLayoutManager(meuLayout);
         meuRec.setHasFixedSize(true);
@@ -47,6 +45,7 @@ public class Principal  extends AppCompatActivity {
                 informacoesLivro(livro);
             }
         });
+
         meuRec.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
     }
@@ -58,13 +57,12 @@ public class Principal  extends AppCompatActivity {
 
     public void informacoesLivro(Livro livro){
         Intent intent = new Intent(this, Informacoes.class);
-        intent.putExtra("livro", livro);
+        Livro livro2 = new Livro(livro.getTitulo(), livro.getGenero(), livro.getSinopse(), livro.getEditora(), livro.getAno());
+        Informacoes.imgLivro = livro.getImage();
+        intent.putExtra("livro", livro2);
         startActivity(intent);
     }
 
-    public void cadastroPrevio(){
-        Livro livro = new Livro("Aventuras de PI", "Aventura", "Livro bom", R.drawable.livroimage, "Saraiva", "2018");
-        listaDeLivros.add(livro);
-    }
+
 
 }
