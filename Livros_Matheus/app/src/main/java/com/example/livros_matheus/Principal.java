@@ -28,9 +28,11 @@ public class Principal  extends AppCompatActivity {
         MeuAdapter meuAdapter = new MeuAdapter(listaDeLivros);
 
         RecyclerView.LayoutManager meuLayout = new LinearLayoutManager(getApplicationContext());
+
         meuRec.setLayoutManager(meuLayout);
         meuRec.setHasFixedSize(true);
         meuRec.setAdapter(meuAdapter);
+
         meuAdapter.setOnItemClickListener(new MeuAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {

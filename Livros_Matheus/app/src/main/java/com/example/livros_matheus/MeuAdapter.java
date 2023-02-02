@@ -99,7 +99,6 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("Entrou onclick");
                     listener2.onContainerClick(listaLivros.get(getAdapterPosition()));
                 }
             });
