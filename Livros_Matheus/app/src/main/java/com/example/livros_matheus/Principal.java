@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Principal  extends AppCompatActivity {
+public class Principal extends AppCompatActivity {
 
     private RecyclerView meuRec;
     private MeuAdapter meuAdapter;
@@ -52,19 +52,17 @@ public class Principal  extends AppCompatActivity {
 
     }
 
-    public void proximaTela(View view){
+    public void proximaTela(View view) {
         Intent intent = new Intent(this, Cadastro.class);
         startActivity(intent);
     }
 
-    public void informacoesLivro(Livro livro){
+    public void informacoesLivro(Livro livro) {
         Intent intent = new Intent(this, Informacoes.class);
         Livro livro2 = new Livro(livro.getTitulo(), livro.getGenero(), livro.getSinopse(), livro.getEditora(), livro.getAno());
         Informacoes.imgLivro = livro.getImage();
         intent.putExtra("livro", livro2);
         startActivity(intent);
     }
-
-
 
 }

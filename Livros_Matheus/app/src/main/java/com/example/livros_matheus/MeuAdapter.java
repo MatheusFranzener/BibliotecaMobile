@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
+public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder> {
 
     private List<Livro> listaLivros;
 
@@ -22,19 +22,19 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
     private OnItemClickListener listener;
     private OnContainerClickListener listener2;
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public interface OnContainerClickListener{
+    public interface OnContainerClickListener {
         void onContainerClick(Livro livro);
     }
 
-    public void setOnItemClickListener(OnItemClickListener clickListener){
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
         listener = clickListener;
     }
 
-    public void setOnContainerClickListener(OnContainerClickListener clickListener){
+    public void setOnContainerClickListener(OnContainerClickListener clickListener) {
         listener2 = clickListener;
     }
 
@@ -44,6 +44,8 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
         listaLivros = listaL;
     }
 
+    // Utilizado para aparecer um livro na lista, podendo clicar para ver informações ou excluir
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -52,6 +54,8 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
 
         return new MyViewHolder(minhaLista, listener, listener2);
     }
+
+    // Adicionar as informações no componente da lista
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -69,13 +73,15 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
         return listaLivros.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    // Define os componentes de exibição para cada item da lista
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView titulo, genero, sinopse;
         ImageView image, lixeira;
         ConstraintLayout container;
 
-        public MyViewHolder(@NonNull View itemView, OnItemClickListener listener, OnContainerClickListener listener2){
+        public MyViewHolder(@NonNull View itemView, OnItemClickListener listener, OnContainerClickListener listener2) {
             super(itemView);
 
             titulo = itemView.findViewById(R.id.tituloView);
@@ -84,16 +90,18 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
             image = itemView.findViewById(R.id.imageView);
 
             // excluir
+
             lixeira = itemView.findViewById(R.id.imageView1);
 
-            lixeira.setOnClickListener(new View.OnClickListener(){
+            lixeira.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view){
+                public void onClick(View view) {
                     listener.onItemClick(getAdapterPosition());
                 }
             });
 
             // selecionar item
+
             container = itemView.findViewById(R.id.containerLivro);
 
             container.setOnClickListener(new View.OnClickListener() {

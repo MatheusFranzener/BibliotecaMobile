@@ -22,8 +22,6 @@ public class Informacoes extends AppCompatActivity {
 
         Livro livro = (Livro) getIntent().getSerializableExtra("livro");
 
-
-
         preencherDados(livro);
 
         Button button = findViewById(R.id.botaoVoltar);
@@ -34,7 +32,7 @@ public class Informacoes extends AppCompatActivity {
         });
     }
 
-    private void preencherDados(Livro livro){
+    private void preencherDados(Livro livro) {
         TextView titulo, genero, sinopse, editora, ano;
         ImageView imagemLivro;
 
