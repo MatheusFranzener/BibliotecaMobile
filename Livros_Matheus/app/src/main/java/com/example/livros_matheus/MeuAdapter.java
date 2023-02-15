@@ -78,9 +78,9 @@ public class MeuAdapter extends RecyclerView.Adapter<MeuAdapter.MyViewHolder>{
         public MyViewHolder(@NonNull View itemView, OnItemClickListener listener, OnContainerClickListener listener2){
             super(itemView);
 
-            titulo = itemView.findViewById(R.id.sinopseView);
-            genero = itemView.findViewById(R.id.tituloView);
-            sinopse = itemView.findViewById(R.id.generoView);
+            titulo = itemView.findViewById(R.id.tituloView);
+            genero = itemView.findViewById(R.id.generoView);
+            sinopse = itemView.findViewById(R.id.sinopseView);
             image = itemView.findViewById(R.id.imageView);
 
             // excluir

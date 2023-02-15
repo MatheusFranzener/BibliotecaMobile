@@ -52,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/lixeira" />
+            app:srcCompat="@drawable/lixoicon" />
 
         <TextView
             android:id="@+id/generoView"
@@ -71,8 +71,8 @@
 
         <TextView
             android:id="@+id/sinopseView"
-            android:layout_width="261dp"
-            android:layout_height="25dp"
+            android:layout_width="258dp"
+            android:layout_height="45dp"
             android:layout_marginStart="9dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="227dp"
