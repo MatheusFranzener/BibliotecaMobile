@@ -15,7 +15,6 @@ import java.util.List;
 public class Principal extends AppCompatActivity {
 
     private RecyclerView meuRec;
-    private MeuAdapter meuAdapter;
     public static List<Livro> listaDeLivros = new ArrayList<>();
 
     @Override
